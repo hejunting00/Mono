@@ -20,7 +20,7 @@ defineProps<{ title: string; dirty: boolean }>()
           fill="#fff"
         />
       </svg>
-      <span class="app-name">mdread</span>
+      <span class="app-name">Mono 简记</span>
     </div>
     <div class="titlebar-title" data-tauri-drag-region>
       <span v-if="dirty" class="titlebar-dirty">●</span>

@@ -1,6 +1,6 @@
 <div align="center">
 
-# mdread
+# Mono 简记
 
 **一款极简、所见即所得的 Markdown 桌面编辑器**
 
@@ -58,8 +58,8 @@
 ### 开发
 
 ```bash
-git clone https://github.com/hejunting00/mdread.git
-cd mdread
+git clone https://github.com/hejunting00/Mono.git
+cd Mono
 npm install
 npm run tauri dev
 ```

@@ -36,7 +36,7 @@ pub fn run() {
         .plugin(tauri_plugin_clipboard_manager::init())
         .setup(|app| {
             if let Some(win) = app.get_webview_window("main") {
-                println!("[mdread] window decorated: {:?}", win.is_decorated());
+                println!("[Mono] window decorated: {:?}", win.is_decorated());
             }
             Ok(())
         })
@@ -55,7 +55,7 @@ pub fn run() {
             }
         })
         .run(tauri::generate_context!())
-        .expect("error while running mdread");
+        .expect("error while running Mono");
 }
 
 /// Frontend reports unsaved-changes state so the window can guard closing.

@@ -1,8 +1,8 @@
 {
-  "name": "mdread",
+  "name": "mono",
   "private": true,
   "version": "0.2.0",
-  "description": "A minimal Markdown editor with Typora-like live preview (Tauri 2 + Vue 3 + Milkdown)",
+  "description": "Mono 简记 — a minimal Markdown editor with Typora-like live preview (Tauri 2 + Vue 3 + Milkdown)",
   "type": "module",
   "scripts": {
     "dev": "vite",

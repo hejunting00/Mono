@@ -48,7 +48,7 @@ function syncDirty(): void {
   const dirty = tabs.value.some((t) => t.dirty)
   void api.value?.setDirty(dirty)
   const t = activeTab.value
-  document.title = t ? `${t.dirty ? '• ' : ''}${t.name} - mdread` : 'mdread'
+  document.title = t ? `${t.dirty ? '• ' : ''}${t.name} - mdread` : 'Mono 简记'
 }
 
 function onSourceInput(): void {

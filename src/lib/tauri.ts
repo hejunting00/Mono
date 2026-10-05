@@ -215,7 +215,7 @@ async function createTauriApi(): Promise<Api> {
 // ---------------------------------------------------------------------------
 
 const MOCK_ROOT = 'C:/mock/docs'
-const WELCOME = `# Welcome to mdread
+const WELCOME = `# Welcome to Mono 简记
 
 A minimal Markdown editor with **live preview** — the *Typora* way.
 
