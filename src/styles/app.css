@@ -1,0 +1,482 @@
+/* Application chrome — Apple design language:
+   frosted translucent panels, segmented controls, hairline separators,
+   generous radii, whisper-soft shadows. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--md-bg);
+  color: var(--md-text);
+  font-family: var(--md-font);
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app,
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+/* Zen mode: all chrome leaves, only the text remains. The title bar slides
+   away and comes back when the pointer touches the top edge. */
+.app.zen-mode .menubar-row,
+.app.zen-mode .doc-tabs-row,
+.app.zen-mode .sidebar,
+.app.zen-mode .statusbar {
+  display: none;
+}
+
+.app.zen-mode .titlebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  transform: translateY(-100%);
+  transition: transform 0.25s ease;
+}
+
+.zen-hover-zone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: 199;
+}
+
+.zen-hover-zone:hover + .titlebar,
+.app.zen-mode .titlebar:hover {
+  transform: translateY(0);
+}
+
+.app.zen-mode .milkdown-root .editor {
+  padding-top: 5em;
+}
+
+/* Tab bar — a light, unified toolbar strip */
+.menubar-row {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 10px;
+  background: var(--md-panel);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-bottom: 1px solid var(--md-border);
+  user-select: none;
+  position: relative;
+  z-index: 90;
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-bottom: 1px solid var(--md-border);
+  user-select: none;
+}
+
+/* document tabs above the editor */
+.doc-tabs-row {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--md-border);
+  background: var(--md-panel);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  flex: 1;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--md-muted);
+  cursor: default;
+  white-space: nowrap;
+  max-width: 220px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.tab .tab-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tab:hover {
+  background: var(--md-active-line);
+}
+.tab.active {
+  background: var(--md-surface);
+  color: var(--md-text);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.tab-close {
+  opacity: 0.4;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 4px;
+}
+.tab-close:hover {
+  opacity: 1;
+  background: var(--md-active-line);
+}
+.tab-dirty {
+  color: var(--md-accent);
+  font-size: 8px;
+  line-height: 1;
+}
+.tab-new {
+  border: none;
+  background: transparent;
+  color: var(--md-muted);
+  font-size: 18px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  line-height: 1;
+}
+.tab-new:hover {
+  background: var(--md-active-line);
+  color: var(--md-text);
+}
+
+/* Main layout */
+.main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* Sidebar — frosted glass panel */
+.sidebar {
+  width: 264px;
+  min-width: 264px;
+  display: flex;
+  flex-direction: column;
+  background: var(--md-panel);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-right: 1px solid var(--md-border);
+  user-select: none;
+}
+.sidebar.hidden {
+  display: none;
+}
+
+/* Segmented control */
+.sidebar-tabs {
+  display: flex;
+  gap: 2px;
+  margin: 10px 12px 4px;
+  padding: 2px;
+  background: var(--md-active-line);
+  border-radius: 9px;
+}
+.sidebar-tab {
+  flex: 1;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--md-muted);
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 0.15s ease;
+}
+.sidebar-tab:hover {
+  color: var(--md-text);
+}
+.sidebar-tab.active {
+  background: var(--md-surface);
+  color: var(--md-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow: auto;
+  font-size: 13px;
+  padding: 6px 0 12px;
+}
+
+/* Outline */
+.outline-item {
+  padding: 4px 16px;
+  margin: 0 8px;
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--md-text);
+  transition: background 0.12s ease;
+}
+.outline-item:hover {
+  background: var(--md-active-line);
+}
+.outline-empty,
+.tree-empty {
+  color: var(--md-muted);
+  padding: 16px 16px;
+  font-size: 12.5px;
+  text-align: center;
+}
+
+/* File tree */
+.tree-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  padding: 0 10px;
+  margin: 0 8px;
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--md-text);
+  transition: background 0.12s ease;
+}
+.tree-row:hover {
+  background: var(--md-active-line);
+}
+.tree-row.tree-active {
+  color: var(--md-accent);
+  background: var(--md-accent-soft);
+}
+.tree-icon {
+  width: 14px;
+  text-align: center;
+  font-size: 10px;
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+.tree-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Editor container */
+.editor-container {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  background: var(--md-surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-scroll {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Status bar */
+.statusbar {
+  height: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  font-size: 11.5px;
+  color: var(--md-muted);
+  background: var(--md-panel);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-top: 1px solid var(--md-border);
+  user-select: none;
+  letter-spacing: 0;
+}
+
+/* Context menu */
+.ctx-menu {
+  position: fixed;
+  z-index: 2000;
+  min-width: 180px;
+  background: var(--md-panel);
+  backdrop-filter: blur(32px) saturate(1.8);
+  -webkit-backdrop-filter: blur(32px) saturate(1.8);
+  border: 1px solid var(--md-border);
+  border-radius: 10px;
+  box-shadow: var(--md-shadow);
+  padding: 5px;
+}
+.ctx-item {
+  padding: 5px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--md-text);
+}
+.ctx-item:hover {
+  background: var(--md-accent);
+  color: #fff;
+}
+
+/* Sidebar quick actions */
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 10px 8px;
+  border-bottom: 1px solid var(--md-border);
+  margin-bottom: 6px;
+}
+.side-action {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: var(--md-text);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: default;
+  text-align: left;
+  transition: background 0.12s ease;
+}
+.side-action:hover {
+  background: var(--md-active-line);
+}
+.side-action svg {
+  color: var(--md-accent);
+  flex-shrink: 0;
+}
+
+/* Shared dropdown entry styles (menu bar + editor context menu) */
+.menu-sep {
+  height: 1px;
+  background: var(--md-border);
+  margin: 5px 10px;
+}
+.menu-entry {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--md-text);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 4px 8px 4px 4px;
+  border-radius: 7px;
+  cursor: default;
+  text-align: left;
+}
+.menu-entry:hover {
+  background: var(--md-accent);
+  color: #fff;
+}
+.menu-entry:hover .menu-shortcut {
+  color: rgba(255, 255, 255, 0.75);
+}
+.menu-check {
+  width: 18px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--md-accent);
+  flex-shrink: 0;
+}
+.menu-entry:hover .menu-check {
+  color: #fff;
+}
+.menu-label {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.menu-shortcut {
+  color: var(--md-muted);
+  font-size: 11.5px;
+  margin-left: 14px;
+  flex-shrink: 0;
+}
+.ctx-item.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Preview / Source mode segmented control (right of the doc tabs) */
+.mode-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--md-active-line);
+  border-radius: 9px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+.mode-btn {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--md-muted);
+  padding: 3px 12px;
+  border-radius: 7px;
+  cursor: default;
+  transition: all 0.15s ease;
+}
+.mode-btn:hover {
+  color: var(--md-text);
+}
+.mode-btn.active {
+  background: var(--md-surface);
+  color: var(--md-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Raw markdown source view */
+.source-editor {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: var(--md-surface);
+  color: var(--md-text);
+  font-family: var(--md-mono);
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 2.5em 3em 45vh 3em;
+  box-sizing: border-box;
+}

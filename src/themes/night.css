@@ -1,0 +1,36 @@
+/* Apple-dark theme — elevated dark surfaces, iOS blue accent. */
+:root[data-theme='night'] {
+  --md-bg: #1c1c1e;
+  --md-surface: #232326;
+  --md-text: #f5f5f7;
+  --md-muted: #98989d;
+  --md-border: rgba(255, 255, 255, 0.1);
+  --md-link: #409cff;
+  --md-code-bg: #2b2b2e;
+  --md-active-line: rgba(255, 255, 255, 0.05);
+  --md-selection: rgba(0, 122, 255, 0.35);
+  --md-cursor: #f5f5f7;
+  --md-panel: rgba(28, 28, 30, 0.82);
+  --md-panel-solid: #232326;
+  --md-accent: #0a84ff;
+  --md-accent-soft: rgba(10, 132, 255, 0.16);
+  --md-danger: #ff453a;
+  --md-highlight-bg: #6b5416;
+  --md-quote-border: #48484a;
+  --md-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme='night'] .tok-keyword, [data-theme='night'] .tok-controlKeyword,
+[data-theme='night'] .tok-moduleKeyword, [data-theme='night'] .tok-definitionKeyword { color: #ff7ab2; }
+[data-theme='night'] .tok-string, [data-theme='night'] .tok-string2 { color: #ff8170; }
+[data-theme='night'] .tok-comment, [data-theme='night'] .tok-meta { color: #7f8c98; font-style: italic; }
+[data-theme='night'] .tok-number, [data-theme='night'] .tok-bool,
+[data-theme='night'] .tok-atom, [data-theme='night'] .tok-null { color: #d0bfff; }
+[data-theme='night'] .tok-function, [data-theme='night'] .tok-variableName2 { color: #6bdfff; }
+[data-theme='night'] .tok-typeName, [data-theme='night'] .tok-className, [data-theme='night'] .tok-self { color: #ffd60a; }
+[data-theme='night'] .tok-tagName { color: #6ce3a0; }
+[data-theme='night'] .tok-attributeName, [data-theme='night'] .tok-propertyName { color: #78c2ff; }
+[data-theme='night'] .tok-labelName, [data-theme='night'] .tok-regexp { color: #6ce3a0; }
+[data-theme='night'] .tok-escape, [data-theme='night'] .tok-operator { color: #8cd06a; }
+[data-theme='night'] .tok-punctuation { color: #98989d; }
+[data-theme='night'] .tok-invalid { color: #ff453a; background: rgba(255, 69, 58, 0.15); }

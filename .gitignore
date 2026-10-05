@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+out/
+src-tauri/target/
+src-tauri/gen/schemas/
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / tooling
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# agent workspace
+.zcode/
+
+# os
+.DS_Store
+Thumbs.db

@@ -1,0 +1,38 @@
+/* Apple-light theme — system grays, hairline separators, iOS blue accent. */
+:root {
+  --md-bg: #f5f5f7;
+  --md-surface: #ffffff;
+  --md-text: #1d1d1f;
+  --md-muted: #6e6e73;
+  --md-border: rgba(0, 0, 0, 0.09);
+  --md-link: #0066cc;
+  --md-code-bg: #f6f6f8;
+  --md-active-line: rgba(0, 0, 0, 0.04);
+  --md-selection: rgba(0, 122, 255, 0.22);
+  --md-cursor: #1d1d1f;
+  --md-panel: rgba(245, 245, 247, 0.86);
+  --md-panel-solid: #f5f5f7;
+  --md-accent: #0071e3;
+  --md-accent-soft: rgba(0, 113, 227, 0.1);
+  --md-danger: #ff3b30;
+  --md-highlight-bg: #fff3c4;
+  --md-quote-border: #d2d2d7;
+  --md-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08);
+  --md-radius: 12px;
+  --md-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue',
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --md-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Consolas, 'Cascadia Code', monospace;
+}
+
+.tok-keyword, .tok-controlKeyword, .tok-moduleKeyword, .tok-definitionKeyword { color: #ad3da4; }
+.tok-string, .tok-string2 { color: #c41a16; }
+.tok-comment, .tok-meta { color: #707f8c; font-style: italic; }
+.tok-number, .tok-bool, .tok-atom, .tok-null { color: #1c00cf; }
+.tok-function, .tok-variableName2 { color: #326d74; }
+.tok-typeName, .tok-className, .tok-self { color: #5c2699; }
+.tok-tagName { color: #0b4f79; }
+.tok-attributeName, .tok-propertyName { color: #82330c; }
+.tok-labelName, .tok-regexp { color: #0b4f79; }
+.tok-escape, .tok-operator { color: #3e8087; }
+.tok-punctuation { color: #6e6e73; }
+.tok-invalid { color: #ff3b30; background: rgba(255, 59, 48, 0.12); }
