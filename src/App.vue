@@ -48,7 +48,7 @@ function syncDirty(): void {
   const dirty = tabs.value.some((t) => t.dirty)
   void api.value?.setDirty(dirty)
   const t = activeTab.value
-  document.title = t ? `${t.dirty ? '• ' : ''}${t.name} - mdread` : 'Mono 简记'
+  document.title = t ? `${t.dirty ? '• ' : ''}${t.name} - Mono 简记` : 'Mono 简记'
 }
 
 function onSourceInput(): void {
@@ -352,7 +352,7 @@ defineExpose({ handleAction })
 <template>
   <div ref="appEl" class="app" :class="{ 'zen-mode': settings.focus }">
     <div v-if="settings.focus" class="zen-hover-zone" />
-    <TitleBar :title="activeTab?.name ?? 'mdread'" :dirty="activeTab?.dirty ?? false" />
+    <TitleBar :title="activeTab?.name ?? 'Mono 简记'" :dirty="activeTab?.dirty ?? false" />
     <div class="menubar-row">
       <MenuBar :settings="settings" :locale="localeRef" @action="handleAction($event)" />
     </div>
